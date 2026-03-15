@@ -30,17 +30,17 @@ class Course:
         self.name = name
         self.credits = credits
         self.description = description
-        self.prerequisites = prerequisites
+        self.prerequisites = prerequisites  
 
 class Section:
-    def __init__(self, id: int, name: str, capacity: int, delivery_method: str, term_dates: DateRange, professor_id: int):
+    def __init__(self, id: int, capacity: int, delivery_method: str, term_dates: DateRange, professor_id: int, course_code: CourseCode):
         self.id = id
-        self.name = name
         self.capacity = capacity
         self.delivery_method = delivery_method
         self.term_dates = term_dates
         self.professor_id = professor_id
         self.roster: List[int] = []
+        self.course_code = course_code
     
     def add_student(self, student_id: int):
         if len(self.roster) >= self.capacity:
